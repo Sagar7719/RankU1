@@ -34,9 +34,12 @@ export const register = async (req, res, next) => {
 
   } catch (error) {
 
-  res.status(400);
+  console.log("ERROR OCCURRED:", error);
 
-  next(error);
+  res.status(500).json({
+    success: false,
+    message: error.message
+  });
 
 }
 
@@ -71,11 +74,10 @@ export const login = async (req, res, next) => {
     });
 
   } catch (error) {
-
-  res.status(401);
-
-  next(error);
-
+  res.status(500).json({
+    success: false,
+    message: error.message
+  });
 }
 
 };

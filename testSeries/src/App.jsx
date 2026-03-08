@@ -1,9 +1,25 @@
-import AppRoutes from "./routes/AppRoutes"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-const App = () => {
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+
+function App() {
   return (
-    <AppRoutes />
-  )
+    <BrowserRouter>
+
+      <Routes>
+
+        {/* default route */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
+
+      </Routes>
+
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
