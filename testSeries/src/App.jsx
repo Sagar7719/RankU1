@@ -1,24 +1,25 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
   return (
-    <BrowserRouter>
 
-      <Routes>
+    <Routes>
 
-        {/* default route */}
-        <Route path="/" element={<Navigate to="/login" />} />
+      {/* Layout Wrapper */}
+      <Route element={<MainLayout />}>
 
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-
         <Route path="/register" element={<Register />} />
 
-      </Routes>
+      </Route>
 
-    </BrowserRouter>
+    </Routes>
+
   );
 }
 

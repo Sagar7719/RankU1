@@ -1,11 +1,13 @@
-import React from 'react'
-
+import Hero from "../../components/Hero_Section/Hero";
+import "./Home.css";
 const Home = () => {
-  return (
-    <div>
-        <h1>Welcome to the Home Page</h1>
-    </div>
-  )
-}
 
-export default Home
+  return (
+    <div className="hp">
+     <Hero />
+    </div>
+  );
+
+};
+
+export default Home;
