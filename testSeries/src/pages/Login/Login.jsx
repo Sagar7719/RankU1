@@ -2,7 +2,6 @@ import { useState } from "react";
 import { loginUser } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import Footer from "../../components/Footer/Footer";
 
 const Login = () => {
 
