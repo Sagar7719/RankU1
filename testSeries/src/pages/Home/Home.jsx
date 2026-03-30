@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero_Section/Hero";
+import Hero from "./Hero_Section/Hero";
 import "./Home.css";
 const Home = () => {
 
