@@ -13,7 +13,7 @@ function Navbar() {
     { name: "Exam", path: "/exam" },
     { name: "Courses", path: "/courses" },
     { name: "Current Affairs", path: "/current-affairs" },
-    { name: "Test Series", path: "/test-series" },
+    { name: "TestSeries", path: "/testseries" },
     { name: "Updates", path: "/updates" },
     { name: "Plans", path: "/plans" },
     { name: "Rewards", path: "/rewards" }
