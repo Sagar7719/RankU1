@@ -13,6 +13,5 @@ html, body, #root {
 
 /* CONTENT AREA */
 .mainContent {
-  background-color: black;
   flex: 1;
 }
