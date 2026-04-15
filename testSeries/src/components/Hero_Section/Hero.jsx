@@ -26,15 +26,15 @@ export default function Hero() {
 
         <div className={styles.buttons}>
 
-          <button className={styles.primaryBtn}>
+          <button onClick={() => window.open('http://localhost:5173/test-series', '_blank')} className={styles.primaryBtn}>
             Explore Test Series →
           </button>
 
-          <button className={styles.secondaryBtn}>
-            Google Play
+          <button onClick={() => window.open('https://play.google.com/store/games?hl=en_IN', '_blank')} className={styles.secondaryBtn}>
+            PlayStore
           </button>
 
-          <button className={styles.secondaryBtn}>
+          <button onClick={() => window.open('https://apps.apple.com/app/id123456789', '_blank')}    className={styles.secondaryBtn}>
             App Store
           </button>
 

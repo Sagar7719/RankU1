@@ -23,19 +23,35 @@ const Footer = () => {
 
           {/* SOCIAL ICONS */}
           <div className="social-icons">
-            <FaInstagram />
-            <FaTelegramPlane />
-            <BsChatDots />
-            <FaYoutube />
-          </div>
+        <footer>
+      <a href="https://youtube.com/Ranku1" target="_blank" rel="noopener noreferrer">
+        <FaYoutube size={30} color="#FF0000" /> {/* YouTube red */}
+      </a>
+      <a href="https://instagram.com/Ranku1" target="_blank" rel="noopener noreferrer">
+        <FaInstagram size={30} color="#E1306C" /> {/* Instagram pink */}
+      </a>
+      <a href="https://t.me/Ranku1" target="_blank" rel="noopener noreferrer">
+        <FaTelegramPlane size={30} color="#0088CC" /> {/* Telegram blue */}
+      </a>
+      <a href="https://chat.example.com" target="_blank" rel="noopener noreferrer">
+        <BsChatDots size={30} color="#4CAF50" /> {/* Chat green */}
+      </a>
+    </footer>
+    </div>
+
+
 
           <p><span>Email:</span> support@ranku1.com</p>
           <p><span>Support:</span> +91-8669301878</p>
 
           {/* APP BUTTONS */}
           <div className="app-buttons">
-            <img src="/playstore.png" alt="playstore" />
-            <img src="/appstore.png" alt="appstore" />
+            <a href="https://play.google.com/store/games?hl=en_IN" target="_blank" rel="noopener noreferrer">
+              <img src="/playstore.png" alt="playstore" />
+            </a>
+            <a href="https://apps.apple.com/app/id123456789" target="_blank" rel="noopener noreferrer">
+              <img src="/https://png.pngtree.com/png-vector/20230817/ourmid/pngtree-google-play-app-icon-vector-png-image_9183316.png" alt="appstore icon" />
+            </a>
           </div>
         </div>
 
