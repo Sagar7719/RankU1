@@ -1,0 +1,156 @@
+/* login.css */
+.login-page {
+    height: 100vh;
+    background: linear-gradient(120deg, #020c1b, #091f44, #020c1b);
+    color: white;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login-card {
+    width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.login-card h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #fff, #4f8cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.login-card p {
+    margin-bottom: 25px;
+    color: #ccc;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-card label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #e0e0e0;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #0c1d3a;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4f8cff;
+    background: #102a4e;
+}
+
+.login-card input::placeholder {
+    color: #6b8cae;
+}
+
+.otp-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #4f8cff, #3461ff);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.otp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 140, 255, 0.4);
+}
+
+.otp-btn:active {
+    transform: translateY(0);
+}
+
+.login-card a {
+    color: #4f8cff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-card a:hover {
+    color: #7ba5ff;
+    text-decoration: underline;
+}
+
+/* Remove or adjust these if not needed */
+.password-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    background: transparent;
+    border: 1px solid #555;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.password-btn:hover {
+    border-color: #4f8cff;
+    background: rgba(79, 140, 255, 0.1);
+}
+
+.logo-box {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #071a44, #0a2a73);
+    border-radius: 25px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.6);
+    border: 1px solid rgba(0, 140, 255, 0.4);
+}
+
+/* Remove or keep these if needed for your root component */
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Optional: Add responsive design */
+@media (max-width: 480px) {
+    .login-card {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .login-card h1 {
+        font-size: 28px;
+    }
+}
