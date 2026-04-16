@@ -1,0 +1,158 @@
+/* MAIN SECTION */
+.courses-section{
+  min-height:100vh;
+  background:#000;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding-top:120px;
+}
+
+/* PRE HEADING */
+.pre-heading{
+  border:1px solid #444;
+  padding:6px 16px;
+  border-radius:20px;
+  font-size:12px;
+  color:#facc15;
+  margin-bottom:20px;
+  gap: 6px;
+}
+/* HEADING */
+.main-heading{
+  font-size:clamp(36px,6vw,70px);
+  font-weight:300;
+  line-height:1.2;
+}
+
+.main-heading span{
+  color:#38bdf8;
+  font-weight:600;
+}
+
+/* DESCRIPTION */
+.description{
+  max-width:700px;
+  font-size:16px;
+  color:#cbd5f5;
+  margin-top:20px;
+}
+
+/* FEATURES */
+.features{
+  display:flex;
+  gap:30px;
+  margin-top:40px;
+  font-size:14px;
+}
+
+.features span{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* SEARCH + FILTER */
+.search-filter{
+  width:100%;
+  max-width:1100px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:80px;
+  padding:0 20px;
+}
+
+/* SEARCH */
+.search-box{
+  display:flex;
+  align-items:center;
+  background:#111;
+  padding:10px 14px;
+  border-radius:8px;
+  width:300px;
+}
+
+.search-icon{
+  color:#aaa;
+  margin-right:10px;
+}
+
+.search-box input{
+  background:transparent;
+  border:none;
+  outline:none;
+  color:#fff;
+  width:100%;
+}
+
+/* FILTER */
+.filters{
+  display:flex;
+  gap:20px;
+}
+
+.filters select{
+  background:#111;
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  border-radius:8px;
+}
+/* ===== No Courses Section ===== */
+.no-courses {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.no-courses-heading {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.no-courses-text {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+/* ===== Reset Button ===== */
+.reset-btn {
+  background: transparent;
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.reset-btn:hover {
+  background: #38bdf8;
+  color: #000000;
+}
+
+
+/* MOBILE */
+@media (max-width:768px){
+  .features{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .search-filter{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .search-box{
+    width:100%;
+  }
+
+  .filters{
+    width:100%;
+    justify-content:space-between;
+  }
+}
