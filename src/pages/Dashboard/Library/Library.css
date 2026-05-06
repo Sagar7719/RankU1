@@ -1,0 +1,142 @@
+.dashboard-container .library {
+  padding: 20px;
+  color: white;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  min-height: 100vh;
+}
+
+/* ===== TOP CARDS ===== */
+.dashboard-container .top-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.dashboard-container .card {
+  flex: 1;
+  min-width: 220px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border: 1px solid #1e293b;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+/* ICON */
+.dashboard-container .icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.dashboard-container .card h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.dashboard-container .card p {
+  font-weight: 500;
+}
+
+.dashboard-container .card span {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* ACTIVITY CONTAINER */
+.dashboard-container .activity {
+  margin-top: 20px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #1e293b;
+}
+
+/* TITLE */
+.dashboard-container .activity-title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #60a5fa;
+}
+
+/* SCROLL AREA */
+.dashboard-container .activity-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* CARD */
+.dashboard-container .activity-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #020617;
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* LEFT SIDE */
+.dashboard-container .card-left {
+  display: flex;
+  gap: 15px;
+}
+
+/* ICON */
+.dashboard-container .icon-box {
+  width: 45px;
+  height: 45px;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.dashboard-container .icon-box.blue {
+  background: #3b82f6;
+}
+
+.dashboard-container .icon-box.dark {
+  background: #334155;
+}
+
+/* TEXT */
+.dashboard-container .activity-card h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dashboard-container .score {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.dashboard-container .label {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* PROGRESS BAR */
+.dashboard-container .progress {
+  width: 150px;
+  height: 5px;
+  background: #1e293b;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.dashboard-container .progress-bar {
+  height: 100%;
+  background: #475569;
+  border-radius: 10px;
+}
+
+/* DATE */
+.dashboard-container .date {
+  font-size: 12px;
+  color: #94a3b8;
+}

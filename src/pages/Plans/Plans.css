@@ -1,211 +1,134 @@
 .plans-container {
   text-align: center;
-  padding:  20px 20px;
-  background:#000;
-  color: #ffff;
+  padding: 20px;
+  background: #000;
+  color: #fff;
 }
 .pre-heading-btn {
   background: transparent;
- color: #fff;
-  padding: 6px 18px;
+  color: #fff;
+  padding: 8px 18px;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
   border-radius: 20px;
-  cursor: default;
-  margin-bottom: 25px;
-   margin-top: 60px; 
-   position: relative; 
-   top: 50px; 
-   
+  margin: 40px 0 20px;
+  border: 1px solid #facc15;
 }
-
 .plans-heading {
-  font-size: 60px;
+  font-size: 55px;
   margin-bottom: 10px;
-  margin-top: 60px;
 }
-
 .plans-subheading {
-  color: #555;
-  margin-bottom: 40px;
-  font-size: 30px;
-  }
-
+  color: #888;
+  font-size: 22px;
+  margin-bottom: 50px;
+}
 .plans-cards {
   display: flex;
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
-  
 }
-
 .plan-card {
-  background:#111;
-  color: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background: linear-gradient(180deg, #020617, #03122f);
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px;
+  color: white;
   position: relative;
-  transition: 0.3s;
-  }
-.plan-card{
-background: linear-gradient(180deg,#020617,#03122f);
-border-radius:20px;
-padding:30px;
-width: 100%;
-max-width:350px;
-overflow: hidden;
-color:white;
-position:relative;
-border:1px solid rgba(255,215,0,0.4);
-box-shadow:0 0 20px rgba(0,0,0,0.5);
-transition:0.3s;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+  margin: 14px 0;
+  transition: transform 0.3s ease;
 }
-
 .plan-card:hover {
-  transform: translateY(-10px);
+  transform: scale(1.03);
 }
 
 .plan-card h2 {
+  font-size: 42px;
   margin-bottom: 10px;
-  font-size: 38px;
 }
-
-.plan-card h3 {
-   color: #fff; 
-   margin-bottom: 20px;
-  }
-
+.plan-card p {
+  font-size: 16px;
+}
+.price-box {
+  margin: 12px 0;
+  text-align: left;
+}
+.new-price {
+  font-size: 80px;
+  font-weight: 800;
+}
+.new-price span {
+  color: #facc15;
+  font-size: 35px;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+}
+.discount {
+  background: #0f2e1c;
+  color: #00ff88;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.duration {
+  color: #bbb;
+  margin-top: 8px;
+}
 .plan-card ul {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;   /* 🔥 force vertical */
-  align-items: flex-start;
-  padding: 0;
-  margin: 15px 0;
+  text-align: left;
+   margin: 8px 0 16px 0;
 }
 .plan-card ul li {
-  margin-bottom: 10px;
-  list-style: none;
-  display: flex;             /* better alignment */
-  align-items: center;
-  gap: 8px;
-  margin: 4px 0;
-  width: 100%;
-} 
-  .plan-card ul li::before{
-content:"✔";
-color:#facc15;
-margin-right:10px;
-} 
-
+  margin: 8px 0;
+  font-size: 18px;
+}
+.plan-card ul li::before {
+  content: "✔";
+  color: #facc15;
+  margin-right: 4px;
+  font-size: 15px;
+}
 .plan-btn {
   background: black;
   color: white;
   border: none;
-  padding: 10px 25px;
-  border-radius: 5px;
+  padding: 14px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 25px;
-  
-} 
-.center-btn{
+  margin-top: auto;
+  font-size: 18px;
+  font-weight: 600;
+}
+.center-btn {
   background: #facc15;
   color: #000;
-  font-weight: 600;
 }
-.popular {
-  border: 2px solid #007bff;
-}
-
-.badge {
+/* Recommended Ribbon */
+.recommended-ribbon {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background: black;
-  color: green;
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 5px;
-}
-.price-box {
-   margin: 15px 0;
-  text-align: left;
-  font-size: 40px;
-  }
-₹199 */
- 
-.new-price { 
-  font-size: 75px;   /* price size big */
-  font-weight: 800;
-  color: #fff;
-  margin: 0;
-}
-
-.new-price span {
-  color: #facc15;   /* ₹ yellow disel */
-  font-size: 30px;
-  margin-right: 5px;
-}
-/* ₹499 + 60% OFF row */
- .price-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 5px 0;
-  margin-bottom: 15px;
-} 
-
-/* Old Price */
- .old-price {
-  text-decoration: line-through; 
-  color: #888;
-  font-size: 14px;
-  margin: 0;
-} 
-
-/* Discount Badge */
- .discount { 
-   background: #0f2e1c;
-  color: #00ff88;
-  padding: 3px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 5px;
-  margin-left: 10px;
-} 
-
-/* Duration */
- .duration {
-  font-size: 14px; 
-  color: #bbb;
-  margin-top: 5px;
-  margin-bottom: 40px;
-}
- .plan-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-} 
-
-/* Ribbon */
- .recommended-ribbon {
-  position: absolute;
-  top: 20px;
-  right: -40px;
-  background: #facc15;   /* yellow */
-   color: #000;
-  padding: 8px 60px;
-  font-size: 12px;
+  top: 24px;
+  right: -28px;
+  background: #facc15;
+  color: #000;
+  padding: 6px 18px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
   transform: rotate(45deg);
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-} 
-
-
- 
-
+  z-index: 10;
+}

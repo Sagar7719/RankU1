@@ -3,41 +3,57 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
+  
+  const isAuthenticated = !!localStorage.getItem("token");
 
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Exam", path: "/exam" },
     { name: "Courses", path: "/courses" },
-    { name: "CurrentAffairs", path: "/current-affairs" },
+    { name: "Current Affairs", path: "/current-affairs" },
     { name: "Test Series", path: "/test-series" },
     { name: "Updates", path: "/updates" },
     { name: "Plans", path: "/plans" },
     { name: "Rewards", path: "/rewards" }
   ];
 
-  // 🔥 Detect current page
-  const isLoginPage = location?.pathname === "/login";
+  // Detect pages
+  const isLoginPage = location.pathname === "/login";
+  const isRegisterPage = location.pathname === "/register";
 
-  // 🔥 Button text + navigation
+  // Handle button click
   const handleAuthClick = () => {
-    if (isLoginPage) {
+    if (isAuthenticated) {
+      localStorage.removeItem("token");
+      navigate("/login");
+    } else if (isLoginPage) {
       navigate("/register");
     } else {
       navigate("/login");
     }
   };
 
-  const buttonText = isLoginPage ? "Register" : "Login";
+  // Button text
+  const buttonText = isAuthenticated
+    ? "Logout"
+    : isLoginPage
+    ? "Register"
+    : "Login";
+
+  // Active link logic (FIXED)
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
-
     <nav className="navbar">
-
       <div className="navContainer">
 
         {/* Logo */}
@@ -51,8 +67,7 @@ function Navbar() {
             <Link
               key={item.name}
               to={item.path}
-              className={`navLink ${location.pathname === item.path ? "activeLink" : ""
-                }`}
+              className={`navLink ${isActive(item.path) ? "activeLink" : ""}`}
               onClick={() => setMenuOpen(false)}
             >
               {item.name}
@@ -63,6 +78,7 @@ function Navbar() {
         {/* Right Section */}
         <div className="rightSection">
 
+          {/* Search */}
           <div className="searchBox">
             <span className="searchIcon">🔍</span>
             <input
@@ -71,7 +87,7 @@ function Navbar() {
             />
           </div>
 
-          {/* 🔥 Dynamic Button */}
+          {/* Dynamic Button */}
           <button
             className="loginBtn"
             onClick={handleAuthClick}
@@ -90,9 +106,7 @@ function Navbar() {
         </div>
 
       </div>
-
     </nav>
-
   );
 }
 

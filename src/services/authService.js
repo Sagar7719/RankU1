@@ -16,7 +16,7 @@ export const registerUser = async (data) => {
   const response = await api.post("/auth/register", data);
 
   // token store in browser
-  localStorage.setItem("token", response.token);
+  localStorage.setItem("token", response.data.token);
 
   return response.data;
 

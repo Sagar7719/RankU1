@@ -43,7 +43,7 @@
 /* FEATURES */
 .features{
   display:flex;
-  gap:30px;
+  gap:20px;
   margin-top:40px;
   font-size:14px;
 }

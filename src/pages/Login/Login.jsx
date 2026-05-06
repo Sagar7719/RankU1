@@ -30,11 +30,10 @@ const Login = () => {
         password
       });
 
-      // save token
-      localStorage.setItem("token", response.token);
+      alert("Login successful! Welcome back.");
 
-      // redirect
-      navigate("/navbar");
+      // force full reload to update auth states across the app
+      window.location.href = "/";
 
     } catch (error) {
 
