@@ -1,0 +1,188 @@
+/* BackButton.css - No Bootstrap, pure responsive CSS */
+
+.tsd-breadcrumb {
+  margin: 0 auto 24px;
+  max-width: 1100px;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tsd-back-btn {
+  /* Base styles */
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.462);
+  border-radius: 100px;
+  color: #94a3b8;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: clamp(12px, 4vw, 14px);
+  font-weight: 600;
+  gap: 8px;
+  padding: 8px 20px;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  line-height: 1.5;
+  text-decoration: none;
+  background-color: transparent;
+  min-height: 36px;
+}
+
+.tsd-back-btn:hover {
+  color: #ffffff;
+  border: 1.5px solid white;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tsd-back-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  border-color: white;
+}
+
+.tsd-back-btn:active {
+  transform: scale(0.98);
+}
+
+.tsd-back-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.tsd-back-btn:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Hide text and show only icon below 125px */
+@media (max-width: 110px) {
+  .tsd-back-btn span {
+    display: none;
+  }
+  
+  .tsd-back-btn {
+    padding: 8px;
+    gap: 0;
+  }
+  
+  .tsd-back-btn svg {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .tsd-breadcrumb {
+    margin: 0 auto 20px;
+    padding: 0 16px;
+  }
+  
+  .tsd-back-btn {
+    min-height: 44px;
+    padding: 8px 18px;
+    gap: 8px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 576px) {
+  .tsd-breadcrumb {
+    margin: 0 auto 16px;
+    padding: 0 12px;
+  }
+  
+  .tsd-back-btn {
+    min-height: 40px;
+    padding: 6px 14px;
+    gap: 6px;
+    border-width: 1px;
+  }
+  
+  .tsd-back-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 380px) {
+  .tsd-breadcrumb {
+    padding: 0 10px;
+  }
+  
+  .tsd-back-btn {
+    padding: 6px 12px;
+    gap: 4px;
+  }
+  
+  .tsd-back-btn span {
+    font-size: 11px;
+  }
+}
+
+/* Touch-friendly for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .tsd-back-btn {
+    min-height: 44px;
+  }
+  
+  .tsd-back-btn:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .tsd-back-btn,
+  .tsd-back-btn svg,
+  .tsd-back-btn:hover svg {
+    transition: none;
+  }
+  
+  .tsd-back-btn:active {
+    transform: none;
+  }
+  
+  .tsd-back-btn:hover svg {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .tsd-back-btn {
+    border-width: 2px;
+  }
+  
+  .tsd-back-btn:hover {
+    border-width: 2px;
+  }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+  .tsd-back-btn {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Optional: Add loading state if needed */
+.tsd-back-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.tsd-back-btn.loading svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

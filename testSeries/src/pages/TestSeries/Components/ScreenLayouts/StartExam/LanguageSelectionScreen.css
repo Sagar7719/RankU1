@@ -1,0 +1,195 @@
+/* LanguageSelectionScreen.css */
+.language-selection-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.tcs-header {
+  background-color: #3f3f3f;
+  color: white;
+  padding: 8px 20px;
+  height: 50px;
+  box-sizing: border-box;
+  border-bottom: 3px solid #f39c12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tcs-header-left {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tcs-header-right {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tcs-header-right b {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.tcs-avatar-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tcs-avatar-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tcs-main-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.tcs-left-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.tcs-right-panel {
+  width: 280px;
+  background-color: #f0f4f8;
+  border-left: 1px solid #d1d5db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.tcs-candidate-photo {
+  width: 150px;
+  height: 160px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.tcs-candidate-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tcs-candidate-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.language-box {
+  background-color: #fcf8e3;
+  border: 1px solid #faebcc;
+  padding: 15px 30px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.language-box label {
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-dropdown {
+  padding: 5px 10px;
+  background-color: #999;
+  color: white;
+  border: 1px solid #888;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.terms-checkbox-section {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.custom-checkbox input {
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.tcs-footer {
+  height: 50px;
+  background-color: #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.tcs-back-btn {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px 15px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.tcs-start-btn {
+  background-color: #4b8cdb;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.tcs-start-btn:disabled {
+  background-color: #94b8e0;
+  cursor: not-allowed;
+}
+
+.tcs-start-btn.active:hover {
+  background-color: #3b76c4;
+}

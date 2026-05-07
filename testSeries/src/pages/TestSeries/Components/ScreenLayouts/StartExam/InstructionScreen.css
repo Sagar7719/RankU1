@@ -1,0 +1,238 @@
+/* InstructionScreen.css */
+.instruction-screen-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tcs-header {
+  background-color: #3f3f3f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  height: 50px;
+  box-sizing: border-box;
+  border-bottom: 3px solid #f39c12; /* Orange line */
+}
+
+.tcs-header-left {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tcs-header-right {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.tcs-header-right b {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.tcs-avatar-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tcs-avatar-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tcs-main-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tcs-left-panel {
+  flex: 1;
+  padding: 20px 40px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.tcs-right-panel {
+  width: 280px;
+  background-color: #f0f4f8; /* Light blue-ish grey */
+  border-left: 1px solid #d1d5db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.tcs-candidate-photo {
+  width: 150px;
+  height: 160px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.tcs-candidate-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tcs-candidate-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.instructions-content h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #000;
+  font-weight: bold;
+}
+
+.instructions-content h3 {
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #000;
+  font-weight: bold;
+}
+
+.instructions-content ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.instructions-content ol li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  font-size: 13px;
+  color: #333;
+}
+
+.tcs-legend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #333;
+  width: 45%;
+}
+
+.legend-item.full-width {
+  width: 100%;
+}
+
+.tcs-legend-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.tcs-legend-icon.unvisited {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #999;
+}
+
+.tcs-legend-icon.not-answered {
+  background-color: #e74c3c;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+}
+
+.tcs-legend-icon.answered {
+  background-color: #2ecc71;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+}
+
+.tcs-legend-icon.marked {
+  background-color: #9b59b6;
+  border-radius: 50%;
+}
+
+.tcs-legend-icon.marked-answered {
+  background-color: #9b59b6;
+  border-radius: 50%;
+  position: relative;
+}
+
+.tcs-legend-icon.marked-answered::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 8px;
+  height: 8px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.tcs-bullet-list {
+  list-style-type: disc;
+  padding-left: 40px;
+  margin-bottom: 15px;
+}
+
+.tcs-bullet-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  font-size: 13px;
+  color: #333;
+}
+
+.tcs-footer {
+  height: 50px;
+  background-color: #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 30px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.tcs-next-btn {
+  background-color: #4b8cdb;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.tcs-next-btn:hover {
+  background-color: #3b76c4;
+}

@@ -1,0 +1,408 @@
+/* SelectionPortal.css */
+
+.selection-portal-container {
+  min-height: 100vh;
+  background: var(--bg-app, linear-gradient(135deg, #0f172a, #0b1224, #020617));
+  background-image: var(--bg-overlay, radial-gradient(circle at 20% 10%, #facc151a, #0000 55%),
+                radial-gradient(circle at 80% 30%, #22c55e14, #0000 55%)), var(--bg-app);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selection-portal {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Back Button Wrapper */
+.portal-back-wrapper {
+  margin-bottom: 32px;
+}
+
+.portal-back-wrapper .tsd-breadcrumb {
+  padding: 0;
+}
+
+/* Header */
+.portal-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.portal-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  background: linear-gradient(135deg, #fff, var(--color-primary, #facc15));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.portal-description {
+  font-size: 1rem;
+  color: var(--text-muted, #e5e7eb99);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Interface Grid */
+.interface-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Interface Card */
+.interface-card {
+  background: var(--bg-card, #02061759);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--border-color, #facc151f);
+  border-radius: var(--radius-lg, 22px);
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  position: relative;
+  overflow: hidden;
+}
+
+.interface-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-accent, #facc15);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.interface-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover, #facc154d);
+  background: var(--bg-card-hover, #0206178c);
+  box-shadow: var(--shadow, 0 10px 30px -10px #00000080);
+}
+
+.interface-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Selected state */
+.interface-card.selected {
+  border-color: var(--card-accent, #facc15);
+  background: rgba(250, 204, 21, 0.1);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+}
+
+.interface-card.selected::before {
+  transform: scaleX(1);
+}
+
+/* Icon */
+.interface-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: var(--radius-md, 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.icon-emoji {
+  font-size: 40px;
+}
+
+.interface-card:hover .interface-icon {
+  transform: scale(1.05);
+}
+
+/* Name */
+.interface-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: var(--text-primary, #fff);
+}
+
+/* Description */
+.interface-description {
+  font-size: 0.875rem;
+  color: var(--text-muted, #e5e7eb99);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Selected Checkmark */
+.selected-check {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  background: var(--card-accent, #facc15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInScale 0.2s ease;
+}
+
+.selected-check svg {
+  stroke: #020617;
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Language Section */
+.language-section {
+  margin-bottom: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color, #facc151f);
+  border-bottom: 1px solid var(--border-color, #facc151f);
+}
+
+.language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  color: var(--text-secondary, #e5e7ebd9);
+}
+
+.language-text {
+  font-weight: 500;
+}
+
+.language-select {
+  background: var(--bg-card, #02061759);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color, #facc151f);
+  border-radius: var(--radius-md, 14px);
+  padding: 10px 20px;
+  color: var(--text-primary, #fff);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 150px;
+}
+
+.language-select:hover {
+  border-color: var(--border-hover, #facc154d);
+  background: var(--bg-card-hover, #0206178c);
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--color-primary, #facc15);
+}
+
+/* Terms Section */
+.terms-section {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.terms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  color: var(--text-secondary, #e5e7ebd9);
+}
+
+.terms-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-primary, #facc15);
+}
+
+.terms-text {
+  user-select: none;
+}
+
+/* Action Buttons */
+.portal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.portal-back-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card, #02061759);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color, #facc151f);
+  border-radius: var(--radius-full, 9999px);
+  padding: 12px 28px;
+  color: var(--text-secondary, #e5e7ebd9);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.portal-back-action:hover {
+  background: var(--bg-card-hover, #0206178c);
+  border-color: var(--border-hover, #facc154d);
+  transform: translateX(-4px);
+}
+
+.portal-start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #64748b;
+  border: none;
+  border-radius: var(--radius-full, 9999px);
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transition: var(--transition);
+  font-family: inherit;
+  letter-spacing: 0.5px;
+}
+
+.portal-start-btn.active {
+  background: linear-gradient(135deg, var(--color-primary, #facc15), var(--color-primary-hover, #eab308));
+  color: #020617;
+  cursor: pointer;
+  box-shadow: var(--shadow-glow, 0 0 20px #facc1526);
+}
+
+.portal-start-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(250, 204, 21, 0.3);
+}
+
+.portal-start-btn.active:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .selection-portal-container {
+    padding: 24px 16px;
+  }
+
+  .portal-title {
+    font-size: 1.75rem;
+  }
+
+  .portal-description {
+    font-size: 0.875rem;
+  }
+
+  .interface-grid {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .interface-card {
+    padding: 20px 16px;
+  }
+
+  .interface-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .icon-emoji {
+    font-size: 32px;
+  }
+
+  .interface-name {
+    font-size: 1.125rem;
+  }
+
+  .interface-description {
+    font-size: 0.8125rem;
+  }
+
+  .language-label {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .language-select {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .terms-text {
+    font-size: 0.875rem;
+  }
+
+  .portal-back-action,
+  .portal-start-btn {
+    padding: 10px 24px;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portal-title {
+    font-size: 1.5rem;
+  }
+
+  .interface-card {
+    padding: 16px 12px;
+  }
+
+  .interface-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .icon-emoji {
+    font-size: 28px;
+  }
+
+  .interface-name {
+    font-size: 1rem;
+  }
+
+  .portal-actions {
+    gap: 12px;
+  }
+
+  .portal-back-action,
+  .portal-start-btn {
+    padding: 8px 20px;
+    font-size: 0.875rem;
+  }
+}

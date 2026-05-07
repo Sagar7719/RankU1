@@ -1,0 +1,80 @@
+/* TestCardsWrapper.css */
+.test-cards-wrapper {
+  background-color:solid #020617;
+  width: 100%;
+  max-width: 800px;
+margin: 0 auto 40px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Ensure all direct children (cards) take full width */
+.test-cards-wrapper > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* For larger screens */
+@media (min-width: 1400px) {
+  .test-cards-wrapper {
+    max-width: 850px;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 968px) {
+  .test-cards-wrapper {
+    max-width: 750px;
+    padding: 0 12px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .test-cards-wrapper {
+    max-width: 100%;
+    padding: 0 12px;
+    gap: 12px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .test-cards-wrapper {
+    padding: 0 8px;
+    gap: 10px;
+  }
+}
+
+/* Optional: Add subtle animation for cards entering */
+.test-cards-wrapper > * {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.test-cards-wrapper > *:nth-child(1) { animation-delay: 0.05s; }
+.test-cards-wrapper > *:nth-child(2) { animation-delay: 0.1s; }
+.test-cards-wrapper > *:nth-child(3) { animation-delay: 0.15s; }
+.test-cards-wrapper > *:nth-child(4) { animation-delay: 0.2s; }
+.test-cards-wrapper > *:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .test-cards-wrapper > * {
+    animation: none;
+    opacity: 1;
+  }
+}
