@@ -7,6 +7,7 @@ const Register = () => {
 
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
+  const [mobileNumber,setMobileNumber] = useState("");
   const [password,setPassword] = useState("");
   const [loading,setLoading] = useState(false);
 
@@ -15,7 +16,7 @@ const Register = () => {
   const handleSubmit = async (e)=>{
     e.preventDefault();
 
-    if(!name || !email || !password){
+    if(!name || !email || !password || !mobileNumber){
       alert("Please fill all fields");
       return;
     }
@@ -27,6 +28,7 @@ const Register = () => {
       await registerUser({
         name,
         email,
+        mobileNumber,
         password
       });
 
@@ -89,6 +91,14 @@ const Register = () => {
             value={email}
             required
             onChange={(e)=>setEmail(e.target.value)}
+          />
+
+          <input
+            type="tel"
+            placeholder="Mobile Number"
+            value={mobileNumber}
+            required
+            onChange={(e)=>setMobileNumber(e.target.value)}
           />
 
           <input

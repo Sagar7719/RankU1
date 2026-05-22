@@ -1,0 +1,200 @@
+.tcs-instructions-wrapper {
+  background: #ffffff;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.tcs-top-bar {
+  background: #333333;
+  color: #ffffff;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #f39c12;
+}
+
+.tcs-top-bar h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tcs-candidate-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.tcs-candidate-img-small {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.tcs-main-content {
+  display: flex;
+  height: calc(100vh - 100px);
+}
+
+.tcs-instructions-area {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tcs-right-sidebar {
+  width: 250px;
+  background: #f4f6f8;
+  border-left: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.tcs-candidate-img-large {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.tcs-candidate-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.tcs-instruction-section {
+  margin-bottom: 20px;
+}
+
+.tcs-instruction-section h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tcs-instruction-section ul {
+  padding-left: 20px;
+}
+
+.tcs-instruction-section li {
+  margin-bottom: 8px;
+}
+
+.tcs-language-select {
+  background: #fdf5e6;
+  padding: 15px;
+  border: 1px solid #f0e6d2;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.tcs-language-select select {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background: #999;
+  color: white;
+}
+
+.tcs-language-select select option {
+  background: white;
+  color: black;
+}
+.tcs-language-select select option:checked {
+  background: #007bff;
+  color: white;
+}
+
+.tcs-terms {
+  font-size: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tcs-terms input {
+  margin-top: 3px;
+}
+
+.tcs-footer {
+  background: #e6eef5;
+  padding: 15px 20px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 250px);
+}
+
+.tcs-next-btn {
+  background: #5b9bd5;
+  color: white;
+  border: 1px solid #41719c;
+  padding: 6px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.tcs-start-btn {
+  background: #5b9bd5;
+  color: white;
+  border: 1px solid #41719c;
+  padding: 6px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.tcs-start-btn:disabled {
+  background: #ccc;
+  border-color: #999;
+  cursor: not-allowed;
+}
+
+/* Specific to Image 5 legend icons */
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.icon-box {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 50%;
+}
+.icon-ans { background: #28a745; }
+.icon-not-ans { background: #dc3545; }
+.icon-review { background: #6f42c1; }
+.icon-ans-review { background: #6f42c1; position: relative;}
+.icon-ans-review::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: #28a745;
+  border-radius: 50%;
+}

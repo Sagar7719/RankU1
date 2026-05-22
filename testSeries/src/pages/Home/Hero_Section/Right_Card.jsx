@@ -14,8 +14,8 @@ const Right_Card = () => {
                         />
 
                         <div>
-                            <h4>Aryan K.</h4>
-                            <p>Aspirant | SSC CGL</p>
+                            <h4 className={styles.userName}>Aryan K.</h4>
+                            <p className={styles.userSub}>Aspirant | SSC CGL</p>
                         </div>
 
                         <span className={styles.rank}>AIR 42</span>
@@ -23,12 +23,12 @@ const Right_Card = () => {
 
                     <div className={styles.stats}>
 
-                        <div>
+                        <div className={styles.statItem}>
                             <p>Total Tests</p>
                             <span>128</span>
                         </div>
 
-                        <div>
+                        <div className={styles.statItem}>
                             <p>Accuracy</p>
                             <span>94%</span>
                         </div>
@@ -48,7 +48,7 @@ const Right_Card = () => {
 
                 {/* Floating Card */}
                 <div className={styles.floatingScore}>
-                    Mock Score
+                    <p>Mock Score</p>
                     <span>178/200</span>
                 </div>
 

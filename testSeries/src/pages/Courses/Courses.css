@@ -1,0 +1,176 @@
+/* MAIN SECTION */
+.courses-section {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px;
+  transition: var(--transition);
+}
+
+/* PRE HEADING */
+.pre-heading {
+  border: 1px solid var(--border-color);
+  background: var(--bg-accent);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  color: #facc15;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* HEADING */
+.main-heading {
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+  letter-spacing: -2px;
+}
+
+.main-heading span {
+  color: var(--accent-primary);
+}
+
+/* DESCRIPTION */
+.description {
+  max-width: 800px;
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.features span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.features i {
+  color: var(--success);
+}
+
+/* SEARCH + FILTER */
+.search-filter {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  background: var(--bg-secondary);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg-accent);
+  padding: 12px 18px;
+  border-radius: 12px;
+  width: 350px;
+  border: 1px solid var(--border-color);
+}
+
+.search-icon {
+  color: var(--text-muted);
+  margin-right: 12px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* FILTER */
+.filters {
+  display: flex;
+  gap: 16px;
+}
+
+.filters select {
+  background: var(--bg-accent);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ===== No Courses Section ===== */
+.no-courses {
+  margin-top: 80px;
+  text-align: center;
+  padding: 40px;
+}
+
+.no-courses-heading {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.no-courses-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* ===== Reset Button ===== */
+.reset-btn {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.reset-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .courses-section { padding-top: 60px; }
+  .features { flex-direction: column; gap: 15px; align-items: center; }
+  .search-filter { flex-direction: column; gap: 16px; }
+  .search-box { width: 100%; }
+  .filters { width: 100%; }
+  .filters select { flex: 1; }
+}

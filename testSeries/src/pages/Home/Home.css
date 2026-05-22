@@ -8,6 +8,7 @@ html , body{
     width: 100%;
 }
 .hp {
-    background-color: #020617;
+    background-color: var(--bg-primary);
     min-height: 100svh;
+    transition: var(--transition);
 }

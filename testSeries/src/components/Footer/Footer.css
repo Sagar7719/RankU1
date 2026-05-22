@@ -1,140 +1,167 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html , body{
-    height: 100%;
-    width: 100%;
-}
-
 .footer {
-  background: linear-gradient(to right, #020617, #020c1b);
-  color: #ccc;
-  padding: 60px 40px 20px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 80px 40px 40px;
   position: relative;
+  border-top: 1px solid var(--border-color);
+  transition: var(--transition);
 }
 
 .footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 64px;
   flex-wrap: wrap;
 }
 
 /* LEFT */
 .footer-left {
   flex: 1;
-  min-width: 280px;
+  min-width: 300px;
 }
 
-.logo {
-  color: #facc15;
-  font-size: 28px;
-  margin-bottom: 10px;
+.footer-left .logo {
+  color: var(--accent-primary);
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: block;
+  font-family: 'Outfit', sans-serif;
 }
 
-.desc {
-  font-weight: 600;
-  margin-bottom: 10px;
+.footer-left .desc {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-size: 1.1rem;
 }
 
-.info {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 20px;
+.footer-left .info {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
 }
 
 .social-icons {
   display: flex;
-  gap: 15px;
-  margin: 20px 0;
+  gap: 16px;
+  margin: 24px 0;
 }
 
 .social-icons svg {
   font-size: 20px;
-  padding: 10px;
-  border: 1px solid #333;
-  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   cursor: pointer;
+  background: var(--bg-accent);
+  transition: var(--transition);
+  color: var(--text-primary);
 }
 
-.footer-left span {
-  color: #facc15;
+.social-icons svg:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-4px);
 }
 
 /* APP BUTTONS */
+.app-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
 .app-buttons img {
-  width: 140px;
-  margin-right: 10px;
-  margin-top: 10px;
+  height: 48px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.app-buttons img:hover {
+  transform: scale(1.05);
 }
 
 /* LINKS */
 .footer-links {
   display: flex;
-  gap: 60px;
+  gap: 80px;
   flex: 2;
   flex-wrap: wrap;
 }
 
 .footer-links div {
-  min-width: 160px;
+  min-width: 180px;
 }
 
 .footer-links h4 {
-  color: #fff;
-  margin-bottom: 15px;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .footer-links a {
   display: block;
-  color: #aaa;
-  margin-bottom: 8px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: var(--transition);
 }
 
 .footer-links a:hover {
-  color: #facc15;
+  color: var(--accent-primary);
+  padding-left: 4px;
 }
 
 /* BOTTOM */
 .footer-bottom {
-  border-top: 1px solid #222;
-  margin-top: 40px;
-  padding-top: 15px;
+  max-width: 1400px;
+  margin: 64px auto 0;
+  border-top: 1px solid var(--border-color);
+  padding-top: 32px;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 /* CHAT BUTTON */
 .chat-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #facc15;
-  color: #000;
-  padding: 14px;
+  bottom: 32px;
+  right: 32px;
+  background: var(--accent-primary);
+  color: white;
+  padding: 16px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 24px;
   cursor: pointer;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.chat-btn:hover {
+  transform: scale(1.1) rotate(10deg);
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .footer-links { gap: 40px; }
+}
+
 @media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-  }
-
-  .footer-links {
-    gap: 30px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
+  .footer { padding: 60px 24px 24px; }
+  .footer-container { flex-direction: column; gap: 48px; }
+  .footer-links { gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
