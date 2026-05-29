@@ -19,9 +19,21 @@ export const registerService = async (name, email, password) => {
 };
 
 
-export const loginService = async (email, password) => {
+export const loginService = async (identifier, password) => {
 
-  const user = await User.findOne({ email });
+  if (!identifier) {
+    throw new Error("Please provide email or mobile number");
+  }
+
+  const isEmail = identifier.includes("@");
+  let query = {};
+  if (isEmail) {
+    query.email = identifier.toLowerCase().trim();
+  } else {
+    query.mobileNumber = identifier.trim();
+  }
+
+  const user = await User.findOne(query);
 
   if (!user) {
     throw new Error("User not found");

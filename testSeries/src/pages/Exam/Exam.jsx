@@ -1,189 +1,282 @@
-import React, { useState } from 'react';
-import './Exam.css';
+/* eslint-disable */
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import './Exams.css';
 
-const Exam = () => {
-  const examsData = [
-    {
-      id: 1,
-      name: 'UPSC Civil Services (IAS)',
-      eligibility: "Bachelor's degree in any discipline",
-      pattern: 'Prelims + Mains + Interview',
-      vacancies: '~1,000',
-      syllabusLink: '#',
-    },
-    {
-      id: 2,
-      name: 'SSC CGL',
-      eligibility: "Bachelor's degree from recognized university",
-      pattern: 'Tier I, II, III, IV',
-      vacancies: '~4,000',
-      syllabusLink: '#',
-    },
-    {
-      id: 3,
-      name: 'IBPS PO',
-      eligibility: "Bachelor's degree (any discipline)",
-      pattern: 'Prelims + Mains + Interview',
-      vacancies: '~4,300',
-      syllabusLink: '#',
-    },
-    {
-      id: 4,
-      name: 'RRB NTPC',
-      eligibility: '12th Pass / Graduation (varies by post)',
-      pattern: 'CBT 1 + CBT 2 + Skill Test',
-      vacancies: '~35,000',
-      syllabusLink: '#',
-    },
-    {
-      id: 5,
-      name: 'SBI PO',
-      eligibility: "Bachelor's degree (any discipline)",
-      pattern: 'Prelims + Mains + Group Exercise & Interview',
-      vacancies: '~2,000',
-      syllabusLink: '#',
-    },
-    {
-      id: 6,
-      name: 'RBI Grade B',
-      eligibility: "Bachelor's degree with minimum 60% marks",
-      pattern: 'Phase I + Phase II + Interview',
-      vacancies: '~300',
-      syllabusLink: '#',
-    },
-    {
-      id: 7,
-      name: 'CDS (Combined Defence Services)',
-      eligibility: "Bachelor's degree (varies by academy)",
-      pattern: 'Written Exam + SSB Interview',
-      vacancies: '~400',
-      syllabusLink: '#',
-    },
-    {
-      id: 8,
-      name: 'AFCAT',
-      eligibility: "Bachelor's degree (minimum 60% marks)",
-      pattern: 'Written Test + AFSB Interview',
-      vacancies: '~250',
-      syllabusLink: '#',
-    },
-    {
-      id: 9,
-      name: 'NABARD Grade A',
-      eligibility: "Bachelor's degree with 50% marks",
-      pattern: 'Prelims + Mains + Interview',
-      vacancies: '~200',
-      syllabusLink: '#',
-    },
-    {
-      id: 10,
-      name: 'Indian Railways (Various)',
-      eligibility: '10th / 12th / Graduation (post dependent)',
-      pattern: 'CBT + Skill Test / Document Verification',
-      vacancies: '~1,20,000 (Multiple zones)',
-      syllabusLink: '#',
-    },
+const defaultCategories = [
+  "All",
+  "JEE",
+  "NEET",
+  "MHT CET",
+  "SSC",
+  "MPSC",
+  "UPSC",
+  "BANKING",
+  "RAILWAY",
+  "MH CET",
+  "महाराष्ट्र पोलीस भरती",
+  "Railways",
+  "Defence",
+  "State Exams",
+  "Saral-Seva"
+];
+
+const Exams = () => {
+  const location = useLocation();
+  const [examsData, setExamsData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedExam, setSelectedExam] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const dynamicCategories = [
+    ...defaultCategories,
+    ...new Set(
+      examsData
+        .map(e => e.category)
+        .filter(cat => cat && !defaultCategories.some(c => c.toLowerCase() === cat.toLowerCase()))
+    )
   ];
 
-  const [searchTerm, setSearchTerm] = useState('');
+  useEffect(() => {
+    const fetchExams = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/exams');
+        if (response.ok) {
+          const data = await response.json();
+          setExamsData(data);
 
-  // Filter exams based on search term (case-insensitive)
-  const filteredExams = examsData.filter((exam) =>
-    exam.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+          // Set initial selected exam
+          if (data.length > 0) {
+            setSelectedExam(data[0]);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching exams:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchExams();
+  }, []);
 
-  // Handle syllabus button click (demo action)
-  const handleSyllabusClick = (examName) => {
-    alert(`📘 Syllabus for ${examName} will be available soon. Stay tuned for detailed PDF and topic-wise breakdown.`);
+  // Handle category or search term set from location state (e.g. from Home page click)
+  useEffect(() => {
+    if (location.state && location.state.search) {
+      const searchVal = location.state.search;
+
+      // Check if searchVal matches a category (case-insensitive)
+      const matchedCategory = dynamicCategories.find(cat => cat.toLowerCase() === searchVal.toLowerCase());
+      if (matchedCategory) {
+        setSelectedCategory(matchedCategory);
+        setSearchTerm('');
+      } else {
+        setSelectedCategory('All');
+        setSearchTerm(searchVal);
+      }
+    }
+  }, [location.state, examsData]);
+
+  // Filter exams based on selected category and search term
+  const filteredExams = examsData.filter((exam) => {
+    const matchesCategory =
+      selectedCategory === 'All' ||
+      (exam.category && exam.category.toLowerCase() === selectedCategory.toLowerCase());
+
+    const matchesSearch =
+      exam.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      exam.eligibility.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      exam.pattern.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return matchesCategory && matchesSearch;
+  });
+
+  // Automatically select the first exam in the filtered list if the current selection is filtered out
+  useEffect(() => {
+    if (filteredExams.length > 0) {
+      const isStillInList = filteredExams.some(e => e._id === selectedExam?._id);
+      if (!isStillInList) {
+        setSelectedExam(filteredExams[0]);
+      }
+    } else {
+      setSelectedExam(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCategory, searchTerm, examsData]);
+
+  // Handle syllabus PDF view click
+  const handleSyllabusClick = (exam) => {
+    if (exam.syllabusLink && exam.syllabusLink !== '#') {
+      const url = exam.syllabusLink.startsWith('http')
+        ? exam.syllabusLink
+        : `http://localhost:5000${exam.syllabusLink}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      alert(`📘 Syllabus for ${exam.name} will be available soon. Stay tuned for detailed PDF and topic-wise breakdown.`);
+    }
   };
 
   return (
-    <div className="exam-directory">
-      {/* Hero Section */}
-      <div className="hero-section">
-        <span className="hero-overline">Explore Opportunities</span>
-        <h1 className="hero-title">Government Exam Directory</h1>
-        <p className="hero-description">
-          Get comprehensive details about every major competitive exam in India, from eligibility and
-          pattern to syllabus and vacancies.
+    <div className="exam-page-container">
+      {/* HEADER HERO AREA */}
+      <div className="exam-page-header">
+        <h1 className="exam-page-title">Government <span className="gradient-highlight">Exam Directory</span></h1>
+        <p className="exam-page-subtitle">
+          Get comprehensive details about every major competitive exam in India, from eligibility and pattern to syllabus and vacancies.
         </p>
       </div>
 
-      {/* Search Bar */}
-      <div className="search-container">
-        <div className="search-wrapper">
-          <span className="search-icon">🔍</span>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search exams (e.g., UPSC, SSC, Banking, Railways)..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          {searchTerm && (
-            <button className="clear-search" onClick={() => setSearchTerm('')}>
-              ✕
-            </button>
-          )}
-        </div>
-      </div>
+      {loading ? (
+        <div className="exam-page-loading">Loading Exam Directory...</div>
+      ) : (
+        <div className="exam-directory-layout">
 
-      {/* Results Count */}
-      <div className="results-info">
-        {filteredExams.length > 0 ? (
-          <p>Showing <strong>{filteredExams.length}</strong> exams</p>
-        ) : (
-          <p>No exams found matching "<strong>{searchTerm}</strong>"</p>
-        )}
-      </div>
-
-      {/* Exam Cards Grid */}
-      <div className="exam-grid">
-        {filteredExams.map((exam) => (
-          <div className="exam-card" key={exam.id}>
-            <h2 className="exam-name">{exam.name}</h2>
-            <div className="exam-details-list">
-              <div className="detail-item">
-                <span className="detail-icon">🎓</span>
-                <div>
-                  <strong>Eligibility</strong>
-                  <p>{exam.eligibility}</p>
-                </div>
-              </div>
-              <div className="detail-item">
-                <span className="detail-icon">📝</span>
-                <div>
-                  <strong>Exam Pattern</strong>
-                  <p>{exam.pattern}</p>
-                </div>
-              </div>
-              <div className="detail-item">
-                <span className="detail-icon">📊</span>
-                <div>
-                  <strong>Vacancies (approx)</strong>
-                  <p>{exam.vacancies}</p>
-                </div>
-              </div>
+          {/* COLUMN 1: CATEGORIES SIDEBAR */}
+          <div className="categories-sidebar">
+            <h3 className="sidebar-title">Categories</h3>
+            <div className="categories-list">
+              {dynamicCategories.map((cat) => (
+                <button
+                  key={cat}
+                  className={`category-item-btn ${selectedCategory === cat ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(cat)}
+                >
+                  <span>{cat}</span>
+                  <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              ))}
             </div>
-            <button
-              className="syllabus-button"
-              onClick={() => handleSyllabusClick(exam.name)}
-            >
-              <span className="btn-icon">📘</span> View Syllabus & Details
-            </button>
           </div>
-        ))}
-      </div>
 
-      {/* No Results Fallback */}
-      {filteredExams.length === 0 && (
-        <div className="no-results">
-          <span className="no-results-icon">📌</span>
-          <p>No exams found. Try a different search term or browse all exams above.</p>
+          {/* COLUMN 2: EXAMS LIST */}
+          <div className="exams-list-column">
+            <div className="search-box-container">
+              <input
+                type="text"
+                className="search-box-input"
+                placeholder="Search exams..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              {searchTerm && (
+                <button className="clear-search-btn" onClick={() => setSearchTerm('')}>
+                  ✕
+                </button>
+              )}
+            </div>
+
+            <div className="exams-scroll-list">
+              {filteredExams.map((exam) => {
+                const firstLetter = exam.name ? exam.name.charAt(0) : '?';
+                const isSelected = selectedExam?._id === exam._id;
+
+                return (
+                  <div
+                    key={exam._id}
+                    className={`exam-list-item-card ${isSelected ? 'selected' : ''}`}
+                    onClick={() => setSelectedExam(exam)}
+                  >
+                    <div className="exam-item-icon-circle">
+                      {exam.image ? (
+                        <img
+                          src={exam.image.startsWith('http') ? exam.image : `http://localhost:5000${exam.image}`}
+                          alt={exam.name}
+                          className="exam-item-icon-img"
+                        />
+                      ) : (
+                        <span>{firstLetter}</span>
+                      )}
+                    </div>
+                    <div className="exam-item-info">
+                      <h4 className="exam-item-title">{exam.name}</h4>
+                      <span className="exam-item-badge">{exam.category || 'Active'}</span>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {filteredExams.length === 0 && (
+                <div className="no-exams-found">
+                  <span className="no-exams-icon">🔍</span>
+                  <p>No exams found matching your filters.</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* COLUMN 3: SELECTED EXAM DETAILS PANEL */}
+          <div className="exam-details-column">
+            {selectedExam ? (
+              <div className="exam-details-card">
+                <div className="exam-details-header">
+                  <h2 className="exam-details-title">{selectedExam.name}</h2>
+                  <div className="exam-details-tags">
+                    <span className="detail-tag category">{selectedExam.category || 'Exam'}</span>
+                    <span className="detail-tag status">Active</span>
+                  </div>
+                </div>
+
+                <div className="details-scroll-content">
+                  {/* OVERVIEW */}
+                  <div className="details-section">
+                    <div className="details-section-header">
+                      <span className="section-icon">ℹ️</span>
+                      <h3>Overview</h3>
+                    </div>
+                    <p className="details-section-text">
+                      {selectedExam.overview || `${selectedExam.name} is a competitive government exam conducted for recruitment into various roles. Check eligibility criteria, paper patterns, and vacancies below.`}
+                    </p>
+                  </div>
+
+                  {/* ELIGIBILITY */}
+                  <div className="details-section">
+                    <div className="details-section-header">
+                      <span className="section-icon">🎓</span>
+                      <h3>Eligibility</h3>
+                    </div>
+                    <p className="details-section-text">{selectedExam.eligibility}</p>
+                  </div>
+
+                  {/* EXAM PATTERN */}
+                  <div className="details-section">
+                    <div className="details-section-header">
+                      <span className="section-icon">📝</span>
+                      <h3>Exam Pattern</h3>
+                    </div>
+                    <p className="details-section-text">{selectedExam.pattern}</p>
+                  </div>
+
+                  {/* VACANCIES */}
+                  <div className="details-section">
+                    <div className="details-section-header">
+                      <span className="section-icon">📊</span>
+                      <h3>Vacancies</h3>
+                    </div>
+                    <p className="details-section-text">{selectedExam.vacancies}</p>
+                  </div>
+                </div>
+
+                <div className="details-footer-action">
+                  <button className="details-action-btn" onClick={() => handleSyllabusClick(selectedExam)}>
+                    <span>📘 View Syllabus & Details</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="select-exam-prompt">
+                <span className="prompt-icon">👈</span>
+                <h3>Select an Exam</h3>
+                <p>Choose an exam from the list on the left to see eligibility, pattern, and syllabus details.</p>
+              </div>
+            )}
+          </div>
+
         </div>
       )}
     </div>
   );
 };
 
-export default Exam;
+export default Exams;

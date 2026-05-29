@@ -1,0 +1,15 @@
+{
+  "name": "ranku1-workspace",
+  "version": "1.0.0",
+  "description": "Unified workspace for RankU1 (Server, Admin Panel, Test Series)",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:admin": "cd adminPanel && npm run dev",
+    "dev:testseries": "cd testSeries && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:admin\" \"npm run dev:testseries\"",
+    "install:all": "cd server && npm install && cd ../adminPanel && npm install && cd ../testSeries && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

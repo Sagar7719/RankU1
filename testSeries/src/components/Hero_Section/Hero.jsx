@@ -26,17 +26,17 @@ export default function Hero() {
 
         <div className={styles.buttons}>
 
-          <button onClick={() => window.open('http://localhost:5173/test-series', '_blank')} className={styles.primaryBtn}>
+          <button className={styles.primaryBtn}>
             Explore Test Series →
           </button>
 
-          <button onClick={() => window.open('https://play.google.com/store/games?hl=en_IN', '_blank')} className={styles.secondaryBtn}>
-            PlayStore
-          </button>
+          <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className={styles.secondaryBtn} style={{ textDecoration: 'none' }}>
+            Google Play
+          </a>
 
-          <button onClick={() => window.open('https://apps.apple.com/app/id123456789', '_blank')}    className={styles.secondaryBtn}>
+          <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className={styles.secondaryBtn} style={{ textDecoration: 'none' }}>
             App Store
-          </button>
+          </a>
 
         </div>
         <div className="hp-hero-trust">

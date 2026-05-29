@@ -1,156 +1,285 @@
-/* login.css */
-.login-page {
-    height: 100vh;
-    background: linear-gradient(120deg, #020c1b, #091f44, #020c1b);
-    color: white;
+.rewards-container {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  transition: var(--transition);
 }
 
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+.rewards-container h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--warning), #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
 }
 
-.login-card {
-    width: 420px;
-    padding: 40px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+.rewards-container > p {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 64px;
 }
 
-.login-card h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    background: linear-gradient(90deg, #fff, #4f8cff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+/* =========================
+   POINTS DASHBOARD
+========================= */
+
+.points-dashboard {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-accent));
+  padding: 48px;
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
 }
 
-.login-card p {
-    margin-bottom: 25px;
-    color: #ccc;
+.points-info h2 {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
 }
 
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
+.points-value {
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
 }
 
-.login-card label {
-    display: block;
-    text-align: left;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #e0e0e0;
+.points-value span {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-left: 12px;
+  font-weight: 700;
 }
 
-.login-card input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: #0c1d3a;
-    color: white;
-    font-size: 14px;
-    transition: all 0.3s ease;
+.points-icon {
+  font-size: 6rem;
+  filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.3));
 }
 
-.login-card input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #4f8cff;
-    background: #102a4e;
+/* =========================
+   REWARDS GRID
+========================= */
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 32px;
 }
 
-.login-card input::placeholder {
-    color: #6b8cae;
+.reward-card {
+  background: var(--bg-secondary);
+  padding: 40px;
+  border-radius: 28px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  box-shadow: var(--card-shadow);
 }
 
-.otp-btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #4f8cff, #3461ff);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.reward-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-primary);
 }
 
-.otp-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(79, 140, 255, 0.4);
+.reward-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 800;
 }
 
-.otp-btn:active {
-    transform: translateY(0);
+.reward-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-size: 15px;
 }
 
-.login-card a {
-    color: #4f8cff;
-    text-decoration: none;
-    transition: color 0.2s ease;
+/* =========================
+   COUPON BOX
+========================= */
+
+.coupon-box {
+  display: flex;
+  gap: 12px;
+  background: var(--bg-accent);
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
 }
 
-.login-card a:hover {
-    color: #7ba5ff;
-    text-decoration: underline;
+.coupon-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  outline: none;
 }
 
-/* Remove or adjust these if not needed */
-.password-btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 30px;
-    background: transparent;
-    border: 1px solid #555;
-    color: white;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.coupon-box input::placeholder {
+  color: var(--text-muted);
 }
 
-.password-btn:hover {
-    border-color: #4f8cff;
-    background: rgba(79, 140, 255, 0.1);
+.apply-btn {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 0 32px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.logo-box {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(145deg, #071a44, #0a2a73);
-    border-radius: 25px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(0, 119, 255, 0.6);
-    border: 1px solid rgba(0, 140, 255, 0.4);
+.apply-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
 }
 
-/* Remove or keep these if needed for your root component */
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+/* =========================
+   REFERRAL BOX
+========================= */
+
+.referral-info {
+  background: var(--bg-accent);
+  padding: 32px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px dashed var(--border-color);
 }
 
-/* Optional: Add responsive design */
-@media (max-width: 480px) {
-    .login-card {
-        width: 90%;
-        padding: 30px 20px;
-    }
-    
-    .login-card h1 {
-        font-size: 28px;
-    }
+.ref-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ref-code {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-primary);
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+  display: block;
+  font-family: 'Outfit', sans-serif;
+}
+
+.copy-btn {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-primary);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 12px 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* =========================
+   REFERRED LIST
+========================= */
+
+.referred-list {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-color);
+}
+
+.referred-list h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.referred-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.referred-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.referred-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.ref-link-input {
+  flex: 1;
+  padding: 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+.social-share-buttons {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.social-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: opacity 0.2s;
+}
+
+.social-btn:hover {
+  opacity: 0.9;
+}
+
+.social-btn.whatsapp { background: #25D366; }
+.social-btn.twitter { background: #1DA1F2; }
+.social-btn.facebook { background: #1877F2; }
+
+.success-text { color: var(--success); font-weight: 600; margin-top: 16px; display: block; }
+.error-text { color: var(--danger); font-weight: 600; margin-top: 16px; display: block; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .points-dashboard { flex-direction: column; text-align: center; padding: 32px; }
+  .points-value { font-size: 3.5rem; }
+  .ref-code { font-size: 1.8rem; letter-spacing: 3px; }
+  .rewards-grid { grid-template-columns: 1fr; }
 }

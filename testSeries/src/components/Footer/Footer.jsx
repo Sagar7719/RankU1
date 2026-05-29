@@ -1,13 +1,13 @@
 import "./footer.css";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaTelegramPlane, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaTelegramPlane, FaYoutube, FaApple, FaGooglePlay } from "react-icons/fa";
 import { BsChatDots } from "react-icons/bs";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        
+
         {/* LEFT SECTION */}
         <div className="footer-left">
           <h2 className="logo">RankU1</h2>
@@ -23,34 +23,38 @@ const Footer = () => {
 
           {/* SOCIAL ICONS */}
           <div className="social-icons">
-        <footer>
-      <a href="https://youtube.com/Ranku1" target="_blank" rel="noopener noreferrer">
-        <FaYoutube size={30} color="#FF0000" /> {/* YouTube red */}
-      </a>
-      <a href="https://instagram.com/Ranku1" target="_blank" rel="noopener noreferrer">
-        <FaInstagram size={30} color="#E1306C" /> {/* Instagram pink */}
-      </a>
-      <a href="https://t.me/Ranku1" target="_blank" rel="noopener noreferrer">
-        <FaTelegramPlane size={30} color="#0088CC" /> {/* Telegram blue */}
-      </a>
-      <a href="https://chat.example.com" target="_blank" rel="noopener noreferrer">
-        <BsChatDots size={30} color="#4CAF50" /> {/* Chat green */}
-      </a>
-    </footer>
-    </div>
-
-
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon instagram" title="Instagram">
+              <FaInstagram />
+            </a>
+            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" className="social-icon telegram" title="Telegram">
+              <FaTelegramPlane />
+            </a>
+            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="social-icon chat" title="Chat Support">
+              <BsChatDots />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon youtube" title="YouTube">
+              <FaYoutube />
+            </a>
+          </div>
 
           <p><span>Email:</span> support@ranku1.com</p>
-          <p><span>Support:</span> +91-8669301878</p>
+          <p><span>Support:</span> +91-7058293263</p>
 
           {/* APP BUTTONS */}
           <div className="app-buttons">
-            <a href="https://play.google.com/store/games?hl=en_IN" target="_blank" rel="noopener noreferrer">
-              <img src="/playstore.png" alt="playstore" />
+            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="app-badge-btn">
+              <FaGooglePlay className="app-icon" />
+              <div className="app-text">
+                <span className="app-sub">GET IT ON</span>
+                <span className="app-main">Google Play</span>
+              </div>
             </a>
-            <a href="https://apps.apple.com/app/id123456789" target="_blank" rel="noopener noreferrer">
-              <img src="/https://png.pngtree.com/png-vector/20230817/ourmid/pngtree-google-play-app-icon-vector-png-image_9183316.png" alt="appstore icon" />
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="app-badge-btn">
+              <FaApple className="app-icon" />
+              <div className="app-text">
+                <span className="app-sub">Download on the</span>
+                <span className="app-main">App Store</span>
+              </div>
             </a>
           </div>
         </div>
@@ -59,30 +63,30 @@ const Footer = () => {
         <div className="footer-links">
           <div>
             <h4>PLATFORM</h4>
-            <Link to="#">Test Series</Link>
-            <Link to="#">Exam Updates</Link>
-            <Link to="#">Score Calculator</Link>
-            <Link to="#">Exam Roadmap</Link>
+            <Link to="/test-series">Test Series</Link>
+            <Link to="/updates">Exam Updates</Link>
+            <Link to="/dashboard">Score Calculator</Link>
+            <Link to="/exam">Exam Roadmap</Link>
           </div>
 
           <div>
             <h4>POPULAR EXAMS</h4>
-            <Link to="#">Talathi</Link>
-            <Link to="#">SSC CGL / CHSL</Link>
-            <Link to="#">Railway / RRB</Link>
-            <Link to="#">Banking</Link>
-            <Link to="#">Police / Defence</Link>
+            <Link to="/exam" state={{ search: "Talathi" }}>Talathi</Link>
+            <Link to="/exam" state={{ search: "SSC" }}>SSC CGL / CHSL</Link>
+            <Link to="/exam" state={{ search: "Railway" }}>Railway / RRB</Link>
+            <Link to="/exam" state={{ search: "Banking" }}>Banking</Link>
+            <Link to="/exam" state={{ search: "Police" }}>Police / Defence</Link>
           </div>
 
           <div>
             <h4>COMPANY</h4>
-            <Link to="#">About Us</Link>
-            <Link to="#">Contact Us</Link>
-            <Link to="#">Careers</Link>
-            <Link to="#">Privacy Policy</Link>
-            <Link to="#">Terms & Conditions</Link>
-            <Link to="#">Refund Policy</Link>
-            <Link to="#">Shipping Policy</Link>
+            <Link to="/info/about-us">About Us</Link>
+            <Link to="/info/contact-us">Contact Us</Link>
+            <Link to="/info/careers">Careers</Link>
+            <Link to="/info/privacy-policy">Privacy Policy</Link>
+            <Link to="/info/terms-conditions">Terms & Conditions</Link>
+            <Link to="/info/refund-policy">Refund Policy</Link>
+            <Link to="/info/shipping-policy">Shipping Policy</Link>
           </div>
         </div>
       </div>
@@ -90,7 +94,11 @@ const Footer = () => {
       {/* BOTTOM */}
       <div className="footer-bottom">
         <p>© 2026 RankU1 – All Rights Reserved. | Maharashtra, India</p>
-        <span>Login Register</span>
+        <div className="footer-bottom-links">
+          <Link to="/login">Login</Link>
+          <span> | </span>
+          <Link to="/register">Register</Link>
+        </div>
       </div>
     </footer>
   );

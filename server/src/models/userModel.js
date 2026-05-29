@@ -21,6 +21,43 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
       minlength: 6
+    },
+    mobileNumber: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+    resetOtp: String,
+    resetOtpExpire: Date,
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user"
+    },
+    referralCode: {
+      type: String,
+      unique: true
+    },
+    referredBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
+    profilePicture: {
+      type: String,
+      default: ""
+    },
+    rewardPoints: {
+      type: Number,
+      default: 0
+    },
+    plan: {
+      name: String,
+      price: Number,
+      buyDate: Date,
+      expireDate: Date,
+      paymentMethod: String,
+      transactionId: String,
+      isActive: { type: Boolean, default: false }
     }
   },
   { timestamps: true }
@@ -31,11 +68,19 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save", async function () {
 
   // If password not modified, skip hashing
-  if (!this.isModified("password")) return;
+  if (!this.isModified("password")) {
+    if (!this.referralCode) {
+      this.referralCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+    }
+    return;
+  }
 
   const salt = await bcrypt.genSalt(10);
-
   this.password = await bcrypt.hash(this.password, salt);
+
+  if (!this.referralCode) {
+    this.referralCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+  }
 
 });
 

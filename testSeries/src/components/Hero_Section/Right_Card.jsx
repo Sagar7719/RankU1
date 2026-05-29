@@ -1,6 +1,32 @@
+import React, { useState, useEffect } from "react";
+import api from "../../../api/axios";
 import styles from "./Right_Card.module.css";
 
 const Right_Card = () => {
+    const [topper, setTopper] = useState(null);
+
+    useEffect(() => {
+        const fetchTopper = async () => {
+            try {
+                const res = await api.get('/admin/topper');
+                setTopper(res.data);
+            } catch (err) {
+                console.error("Error fetching topper info:", err);
+            }
+        };
+        fetchTopper();
+    }, []);
+
+    const displayTopper = (topper && topper.name) ? topper : {
+        name: "Shruti Patil",
+        subTitle: "Aspirant | Talathi Exam",
+        rank: "AIR 12",
+        totalTests: 12,
+        accuracy: 94,
+        score: "188/200",
+        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150"
+    };
+
     return (
         <div>{/* RIGHT SIDE ANALYTICS */}
             <div className={styles.right}>
@@ -8,29 +34,30 @@ const Right_Card = () => {
                 <div className={styles.analyticsCard}>
 
                     <div className={styles.userInfo}>
-                        <img
-                            src="https://i.pravatar.cc/40"
-                            alt="user"
-                        />
-
+                        {displayTopper.avatar && (
+                            <img 
+                                src={displayTopper.avatar} 
+                                alt={displayTopper.name || "Topper Avatar"} 
+                            />
+                        )}
                         <div>
-                            <h4>Aryan K.</h4>
-                            <p>Aspirant | SSC CGL</p>
+                            <h4 className={styles.userName}>{displayTopper.name}</h4>
+                            <p className={styles.userSub}>{displayTopper.subTitle}</p>
                         </div>
 
-                        <span className={styles.rank}>AIR 42</span>
+                        <span className={styles.rank}>{displayTopper.rank}</span>
                     </div>
 
                     <div className={styles.stats}>
 
-                        <div>
+                        <div className={styles.statItem}>
                             <p>Total Tests</p>
-                            <span>128</span>
+                            <span>{displayTopper.totalTests}</span>
                         </div>
 
-                        <div>
+                        <div className={styles.statItem}>
                             <p>Accuracy</p>
-                            <span>94%</span>
+                            <span>{displayTopper.accuracy}%</span>
                         </div>
 
                     </div>
@@ -48,13 +75,13 @@ const Right_Card = () => {
 
                 {/* Floating Card */}
                 <div className={styles.floatingScore}>
-                    Mock Score
-                    <span>178/200</span>
+                    <p>Mock Score</p>
+                    <span>{displayTopper.score}</span>
                 </div>
 
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Right_Card

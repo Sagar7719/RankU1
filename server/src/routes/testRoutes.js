@@ -1,0 +1,25 @@
+import express from "express";
+import { getTests, createTest, getTestById, updateTest, deleteTest, getTestForUser, submitTest, getResult, getMyResults, getDashboardStats, uploadPdfQuestions } from "../controllers/testController.js";
+import { protect, admin } from "../middleware/authMiddleware.js";
+import upload from "../middleware/uploadMiddleware.js";
+
+const router = express.Router();
+
+router.route("/")
+  .get(getTests) // Publicly visible
+  .post(protect, admin, createTest); // Only admin can create tests
+
+router.get("/my-results", protect, getMyResults);
+router.get("/dashboard-stats", protect, getDashboardStats);
+router.get("/results/:id", protect, getResult);
+router.get("/:id/attempt", protect, getTestForUser);
+router.post("/:id/submit", protect, submitTest);
+
+router.route("/:id")
+  .get(protect, getTestById)
+  .put(protect, admin, updateTest)
+  .delete(protect, admin, deleteTest);
+
+router.post("/:id/upload-pdf-questions", protect, admin, upload.single("questionsPdf"), uploadPdfQuestions);
+
+export default router;
