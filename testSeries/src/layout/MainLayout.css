@@ -1,0 +1,17 @@
+/* FULL HEIGHT FIX */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* MAIN LAYOUT */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* CONTENT AREA */
+.mainContent {
+  flex: 1;
+}
