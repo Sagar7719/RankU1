@@ -1,0 +1,335 @@
+/* 🔥 DASHBOARD WRAPPER */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;   /* ✅ allow full height */
+}
+
+/* CONTENT AREA */
+.dashboard-content {
+  flex: 1;
+  overflow-y: auto;   /* ✅ SCROLL FIX */
+  padding: 20px;
+}
+
+/* ===== ANALYTICS ===== */
+/* .dashboard-container .analytics {
+  padding: 20px;
+  color: white;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  min-height: 100%;
+} */
+
+/* HEADER */
+.dashboard-container .analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* DROPDOWNS */
+.dashboard-container .analytics-filters {
+  display: flex;
+  gap: 15px;
+}
+
+.dashboard-container .filter-dropdown {
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: white;
+  border: 1px solid #facc15;
+  border-radius: 14px;
+  padding: 12px 18px;
+  min-width: 180px;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.dashboard-container .filter-dropdown option {
+  background: #0f172a;
+  color: white;
+}
+
+/* ===== TOP STATS ===== */
+.dashboard-container .stats {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.dashboard-container .stats .card {
+  flex: 1;
+  min-width: 150px;
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ===== HEATMAP ===== */
+.dashboard-container .heatmap {
+  margin-top: 20px;
+}
+
+
+/* HEATMAP HEADER */
+.dashboard-container .heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* MONTH DATE BOX */
+.dashboard-container .month-box {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 28px;
+  border-radius: 18px;
+  color: white;
+  min-width: 320px;
+  justify-content: center;
+}
+
+.dashboard-container .month-box h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dashboard-container .month-box span {
+  font-size: 24px;
+  cursor: pointer;
+  color: #cbd5e1;
+}
+
+.dashboard-container .grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dashboard-container .box {
+  background: #1e293b;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== MONTHLY PERFORMANCE ===== */
+.dashboard-container .monthly-performance {
+  margin-top: 40px;
+  padding: 20px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+}
+
+/* HEADER */
+.dashboard-container .mp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-container .verified {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* CARDS */
+.dashboard-container .mp-cards {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.dashboard-container .mp-card {
+  flex: 1;
+  min-width: 180px;
+  background: #020617;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #1e293b;
+}
+
+/* TEXT */
+.dashboard-container .mp-card p {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.dashboard-container .mp-card h3 {
+  margin: 8px 0;
+}
+
+.dashboard-container .sub {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.dashboard-container .red {
+  color: #f87171;
+}
+
+/* DETAILS */
+.dashboard-container .mp-details {
+  margin-top: 20px;
+}
+
+.dashboard-container .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.dashboard-container .bold {
+  font-weight: 600;
+}
+
+.dashboard-container hr {
+  border: none;
+  border-top: 1px solid #334155;
+  margin: 10px 0;
+}
+
+.dashboard-container .no-data {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+  border: 1px dashed #1e293b;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOTTOM SECTION */
+.dashboard-container .bottom-section {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* GOAL CARD */
+.dashboard-container .goal-card {
+  flex: 1;
+  background: linear-gradient(145deg, #0f172a, #111827);
+  border-radius: 24px;
+  padding: 35px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dashboard-container .goal-card h2 {
+  font-size: 32px;
+  margin-bottom: 35px;
+}
+
+.dashboard-container .goal-item {
+  margin-bottom: 35px;
+}
+
+.dashboard-container .goal-text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.dashboard-container .progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #1e293b;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.dashboard-container .progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #3b82f6;
+}
+
+/* AI CARD */
+.dashboard-container .ai-card {
+  flex: 1;
+  background: linear-gradient(145deg, #1f2937, #111827);
+  border-radius: 24px;
+  padding: 35px;
+  border: 1px solid rgba(250, 204, 21, 0.4);
+}
+
+.dashboard-container .ai-card h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.dashboard-container .ai-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.dashboard-container .ai-icon {
+  font-size: 34px;
+}
+
+.dashboard-container .ai-content p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+
+/* LAST TWO BUTTON CARDS */
+.dashboard-container .last-cards {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* SUBJECT */
+.dashboard-container .subject-card {
+  flex: 1;
+  background: linear-gradient(145deg, #0f172a, #111827);
+  border-radius: 22px;
+  padding: 35px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.dashboard-container .subject-card h2 {
+  color: #3b82f6;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* TIME */
+.dashboard-container .time-card {
+  flex: 1;
+  background: linear-gradient(145deg, #0f172a, #111827);
+  border-radius: 22px;
+  padding: 35px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.dashboard-container .time-card h2 {
+  color: #3b82f6;
+  font-size: 28px;
+  font-weight: 700;
+}

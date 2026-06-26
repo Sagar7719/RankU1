@@ -1,0 +1,217 @@
+/* ===== RIGHT SIDE ===== */
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* ===== ANALYTICS CARD ===== */
+
+/* ===== ANALYTICS CARD ===== */
+
+.analyticsCard {
+  background: var(--bg-secondary);
+  backdrop-filter: blur(20px);
+  padding: 32px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+/* ===== USER INFO ===== */
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userInfo img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+}
+
+.userName {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.userSub {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.rank {
+  margin-left: auto;
+  background: var(--bg-accent);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--border-color);
+}
+
+/* ===== STATS ===== */
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.statItem p {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.statItem span {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* ===== CHART ===== */
+
+.chart {
+  display: flex;
+  gap: 10px;
+  margin-top: 32px;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 24px;
+  height: 40px;
+  background: var(--bg-accent);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.barActive {
+  width: 24px;
+  height: 80px;
+  background: var(--accent-primary);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* ===== FLOATING CARD ===== */
+
+.floatingScore {
+  position: absolute;
+  right: -20px;
+  bottom: 20px;
+  background: var(--bg-secondary);
+  padding: 16px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  color: var(--text-primary);
+  transition: var(--transition);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floatingScore p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.floatingScore span {
+  display: block;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+/* ============================= */
+/* RESPONSIVE BREAKPOINTS */
+/* ============================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .left {
+    max-width: 700px;
+  }
+
+  .heading {
+    font-size: 48px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .floatingScore {
+    right: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .heading {
+    font-size: 38px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+
+  .analyticsCard {
+    max-width: 100%;
+  }
+
+  .chart {
+    justify-content: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 30px;
+  }
+
+  .badge {
+    font-size: 12px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}

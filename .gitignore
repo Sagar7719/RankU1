@@ -1,0 +1,26 @@
+# env files
+.env
+server/.env
+
+# node modules
+node_modules/
+testSeries/node_modules/
+server/node_modules/
+
+# build files
+dist/
+build/
+
+# logs
+*.log
+/bin/
+/Libs/
+/.settings/
+/.classpath
+.svn/
+.cache/
+/bin/
+/Libs/
+/.settings/
+/.classpath
+.svn/

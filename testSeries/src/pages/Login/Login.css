@@ -1,0 +1,114 @@
+/* FULL PAGE BACKGROUND */
+
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-primary);
+  padding: 20px;
+  transition: var(--transition);
+}
+
+/* LOGIN CARD */
+
+.loginCard {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-secondary);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 48px 32px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+/* TITLE */
+
+.loginTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.loginSubtitle {
+  color: var(--text-secondary);
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* FORM */
+
+.loginForm {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* INPUT */
+
+.loginForm input {
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-accent);
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+  font-size: 15px;
+}
+
+.loginForm input::placeholder {
+  color: var(--text-muted);
+}
+
+.loginForm input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* BUTTON */
+
+.loginForm button {
+  margin-top: 10px;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.loginForm button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+}
+
+.loginForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-footer {
+  margin-top: 32px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .loginCard { padding: 40px 24px; }
+  .loginTitle { font-size: 28px; }
+}
