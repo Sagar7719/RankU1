@@ -180,6 +180,13 @@ function Exams() {
               {filteredExams.map(function (exam) {
                 const firstLetter = exam.name ? exam.name.charAt(0) : '?';
                 const isSelected = selectedExam && selectedExam._id === exam._id;
+                const fallbackExamIconUrl = 'https://cdn.pixabay.com/vectors/diploma-parchment-graduation-scroll-152024.svg';
+                const hasValidImage = exam.image && exam.image !== 'undefined';
+                const examImageUrl = hasValidImage
+                  ? exam.image.startsWith('http')
+                    ? exam.image
+                    : api.defaults.baseURL + exam.image
+                  : fallbackExamIconUrl;
 
                 return (
                   <div
@@ -190,19 +197,11 @@ function Exams() {
                     }}
                   >
                     <div className="exam-item-icon-circle">
-                      {exam.image ? (
-                        <img
-                          src={exam.image.startsWith('http') ? exam.image : api.defaults.baseURL + exam.image}
-                          alt={exam.name}
-                          className="exam-item-icon-img"
-                        />
-                      ) : (
-                        <span>{firstLetter}</span>
-                      )}
-                    </div>
-                    <div className="exam-item-info">
-                      <h4 className="exam-item-title">{exam.name}</h4>
-                      <span className="exam-item-badge">{exam.category || 'Active'}</span>
+                      <img
+                        src={examImageUrl}
+                        alt={exam.name || 'Exam'}
+                        className="exam-item-icon-img"
+                      />
                     </div>
                   </div>
                 );
